@@ -1,6 +1,6 @@
 import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
-export class CreateTaskDto {
+export class CreateIssueDto {
   @IsString()
   @IsNotEmpty()
   title: string;
@@ -8,8 +8,17 @@ export class CreateTaskDto {
   @IsString()
   @IsOptional()
   description: string;
-
-  @IsBoolean()
+ 
+  @IsString()
   @IsOptional()
-  done?: boolean;
+  state: string;
+  
+  @IsString()
+  @IsOptional()
+  priority: string;
+  
+  @IsString()
+  @IsNotEmpty()
+  userEmail: string;
+
 }

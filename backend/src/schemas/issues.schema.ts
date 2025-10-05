@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type TaskDocument = HydratedDocument<Task>;
+export type IssueDocument = HydratedDocument<Task>;
 
 @Schema({
   timestamps: true,
@@ -13,8 +13,14 @@ export class Task {
   @Prop({ trim: true })
   description: string;
 
-  @Prop({ default: false })
-  done: boolean;
+ @Prop({ trim: true })
+  state: string;
+
+  @Prop({ trim: true })
+  priority: string;
+  
+  @Prop({ trim: true })
+  userEmail: string;
 }
 
-export const TaskSchema = SchemaFactory.createForClass(Task);
+export const IssueSchema = SchemaFactory.createForClass(Task);
